@@ -1,4 +1,4 @@
-/*var arrayData = new Array();
+var arrayData = new Array();
 var archivoTxt = new XMLHttpsRequest();
 var fileRuta = 'index.txt';
 archivoTxt.open("GET", fileRuta, false);
@@ -8,7 +8,7 @@ for (var i= 0; i<txt,kength; i++)
 {
   arrayData.push(txt[i]);
 }
-arrayData.forEach(function(data){console.log(data)});*/
+arrayData.forEach(function(data){console.log(data)});
 
 
 var contenedor;
@@ -72,13 +72,13 @@ var colisionRegistrada;
 var vidas = 4;
 var detecto=0;
 
-/*let saltarAudio = new Audio('./sound/salto.wav');
+let saltarAudio = new Audio('./sound/salto.wav');
 let muerteAudio = new Audio('./sound/muerte.wav');
 let comida1Audio = new Audio('./sound/comida1.wav');
 let comida2Audio = new Audio('./sound/comida2.wav');
 let comida3Audio = new Audio('./sound/comida3.wav');
 let fondoAudio = new Audio('./sound/fondo.wav');
-*/
+
 if(document.readyState === "complete" || document.readyState === "interactive")
 {
   setTimeout(Init,1);
@@ -122,14 +122,13 @@ function start()
   document.addEventListener("keydown", handleKeyDown);
   cuadro_ranking = document.querySelector(".cuadro_ranking")
   document.addEventListener("enter", enter);
- /* saltarAudio = document.querySelector(".audio-salto");
+  saltarAudio = document.querySelector(".audio-salto");
   muerteAudio = new Audio('./sound/muerte.wav');
   comida1Audio = new Audio('./sound/comida1.wav');
   comida2Audio = new Audio('./sound/comida2.wav');
   comida3Audio = new Audio('./sound/comida3.wav');
   //fondoAudio = new Audio('./sound/fondo.wav');
-  fondoAudio =  document.querySelector(".fondoAudio");*/
-  
+  fondoAudio =  document.querySelector(".fondoAudio");
 }
 
 function update()
@@ -171,8 +170,8 @@ function saltar()
   {
     saltando=true;
     velY=impulso;
-    /*saltarAudio = 0;
-    saltarAudio.play();*/
+    altarAudio = 0;
+    saltarAudio.play();
     cerdo.classList.remove("cerdoMovement");
     
   }
@@ -205,7 +204,7 @@ function estrellarse()
 {
   cerdo.classList.remove("cerdoMovement");
   cerdo.classList.add("cerdoMuerte");
-  /*muerteAudio.play();*/
+  muerteAudio.play();
   parado=true;
 }
 
@@ -388,27 +387,28 @@ function ganarzanahoria(){
 }
 
 function GameOver() {
-  /*if (vidas>0){
+  if (vidas>0){
     vidas--;
     vidas.toString(vidas);
     textovida.innerText= vidas;
     parseInt(vidas);
   }else{
-  if (vidas==0)*/
-    estrellarse();
-    gameOver.style.display = "block";
-    /*fondoAudio.pause();*/
+    if (vidas==0)
+      estrellarse();
+      gameOver.style.display = "block";
+      fondoAudio.pause();
 }
 
-
-/*function ranking(){
+/*
+function ranking(){
   {
   nombre=prompt('Ingrese su nombre');
-  //textonombre.innerText= nombre;
+  textonombre.innerText= nombre;
   document.textonombre= nombre;
   }
-  suelo.style.animationDuration = (3/gameVel)+"s";/*agregado*/
-/*}
+  suelo.style.animationDuration = (3/gameVel)+"s";
+}*/
+
 function usuario() {
   nombre=prompt('Ingrese su nombre:');
 
@@ -450,7 +450,7 @@ function restarVida() {
     actualizarVidas(); // Actualiza la cantidad de vidas en pantalla
   }
 }
- /* suelo.style.animationDuration = (3/gameVel)+"s"; /*agregado*/
+ suelo.style.animationDuration = (3/gameVel)+"s"; /*agregado*/
 
  function detectarColision() {
   for (var i = 0; i < obstaculos.length; i++) {
@@ -476,13 +476,6 @@ function eliminarObstaculo(index) {
   }
 }
 
-
-
-
-
-
-
-
 function detectarColisionhamburguesas()
 {
   for (var i = 0; i < interactuables.length; i++) {
@@ -490,17 +483,17 @@ function detectarColisionhamburguesas()
       if(IsCollision(cerdo, interactuables[i], 10, 25, 10, 20)) {
         
           if(interactuables[i].classList.contains("hamburguesa")){
-              /*comida1Audio.play();*/
+              comida1Audio.play();
               interactuables[i].parentNode.removeChild(interactuables[i]);
               interactuables.splice(i, 1);
               ganarhamburguesas();
           }else if (interactuables[i].classList.contains("zanahoria")){
-              /*comida2Audio.play();*/
+              comida2Audio.play();
               interactuables[i].parentNode.removeChild(interactuables[i]);
               interactuables.splice(i, 1);
               ganarzanahoria();
           } else if (interactuables[i].classList.contains("cereza")){
-            /*comida3Audio.play();*/
+            comida3Audio.play();
             interactuables[i].parentNode.removeChild(interactuables[i]);
             interactuables.splice(i, 1);
             ganarcereza();
